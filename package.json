@@ -1,0 +1,34 @@
+{
+  "name": "tests-execution-result",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "ts-node-dev --poll src/index.ts",
+    "build": "rimraf ./dist && tsc && tscp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flaky-infra/tests-execution-result.git"
+  },
+  "keywords": [],
+  "author": "Salvatore Fasano",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/flaky-infra/tests-execution-result/issues"
+  },
+  "homepage": "https://github.com/flaky-infra/tests-execution-result#readme",
+  "devDependencies": {
+    "@types/amqplib": "^0.8.2",
+    "@types/node": "^18.0.1",
+    "rimraf": "^3.0.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4",
+    "typescript-cp": "^0.1.5"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.0",
+    "flaky-common": "^0.0.4",
+    "redis": "^4.2.0"
+  }
+}
