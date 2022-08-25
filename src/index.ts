@@ -2,6 +2,7 @@ import {
   brokerWrapper,
   FLAKY_EXCHANGE_NAME,
   getCompleteUri,
+  RootCause,
   ScenarioExecutionResult,
   ScenarioExecutionResultModel,
   TestFailuresModel,
@@ -150,7 +151,7 @@ async function checkResults() {
               }));
 
             let rootCauseConfig: ScenarioExecutionResult;
-            let rootCauseScenario: any;
+            let rootCauseScenario: RootCause;
             if (baseResult.failureRate === 0) {
               rootCauseConfig = allConfigExecutionResults.reduce((prev, curr) =>
                 prev.failureRate > curr.failureRate ? prev : curr
@@ -182,7 +183,7 @@ async function checkResults() {
             );
 
             testRun.isFlaky = true;
-            testRun.rootCause = rootCauseConfig;
+            testRun.rootCause = rootCauseScenario;
           }
 
           const allConfigExecutionResultsModified = await Promise.all(
